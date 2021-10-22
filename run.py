@@ -39,3 +39,21 @@ class Credentials():
 
     def delete_credentials(self):
         Credentials.credentials_list.remove(self)
+    
+    @classmethod
+    def find_credential(cls, account):
+        for credential in cls.credentials_list:
+            if credential.account == account:
+                return credential
+
+    @classmethod
+    def copy_password(cls,account):
+        found_credentials = Credentials.find_credential(account)
+        pyperclip.copy(found_credentials.password)
+
+    @classmethod
+    def if_credential_exist(cls, account):
+        for credential in cls.credentials_list:
+            if credential.account == account:
+                return True
+        return False
