@@ -50,3 +50,9 @@ class TestCredentials(unittest.TestCase):
         the_credential.save_details()
         credential_is_found = Credentials.if_credential_exist("Tiktok")
         self.assertTrue(credential_is_found)
+
+    def test_show_all_saved_credentials(self):
+        self.assertEqual(Credentials.show_credentials(),Credentials.credentials_list)
+
+if __name__ == "__main__":
+    unittest.main()
