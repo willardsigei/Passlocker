@@ -97,4 +97,53 @@ def userlocker():
             print('\n')
             print(f"Credential for: {account} - UserName: {userName} - Password:{password} Succesfully Created")
             print('\n')
+        elif short_code == "sc":
+            if show_accounts_details():
+                print("Acounts: ")
+                 
+                print('*' * 40)
+                print('_'* 40)
+                for account in show_accounts_details():
+                    print(f" Account:{account.account} \n User Name:{username}\n Password:{password}")
+                    print('_'* 40)
+                print('*' * 40)
+            else:
+                print("You have no acounts saved..........")
+        elif short_code == "fc":
+            print("Type the Account Name")
+            search_name = input().lower()
+            if find_credential(search_name):
+                search_credential = find_credential(search_name)
+                print(f"Account Name : {search_credential.account}")
+                print('-' * 40)
+                print(f"User Name: {search_credential.userName} Password :{search_credential.password}")
+                print('-' * 40)
+            else:
+                print("User is not in the system")
+                print('\n')
+        elif short_code == "d":
+            print("type username")
+            search_name = input().lower()
+            if find_credential(search_name):
+                search_credential = find_credential(search_name)
+                print("_"*40)
+                search_credential.delete_credentials()
+                print('\n')
+                print(f"{search_credential.account} Successfully deleted!")
+                print('\n')
+            else:
+                print("User is not in the system")
 
+        elif short_code == 'gp':
+            password = generate_Password()
+            print(f" {password} Succesfull Generated.")
+        elif short_code == 'exit':
+            print("Welcome again!")
+            break
+        else:
+            print("Invalid type correct code")
+    else:
+        print("Invalid, type correct code")
+
+if __name__ == '__main__':
+    userlocker()
