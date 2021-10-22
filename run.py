@@ -57,3 +57,11 @@ class Credentials():
             if credential.account == account:
                 return True
         return False
+
+    @classmethod
+    def show_credentials(cls):
+        return cls.credentials_list
+
+    def generatePassword(stringLength=8):
+        password = string.ascii_uppercase + string.ascii_lowercase + string.digits + "~!@#$%^&*"
+        return ''.join(random.choice(password) for i in range(stringLength))
