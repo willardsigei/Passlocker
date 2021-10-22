@@ -36,3 +36,10 @@ class TestCredentials(unittest.TestCase):
         test_credential.save_details()
         self.new_credential.delete_credentials()
         self.assertEqual(len(Credentials.credentials_list),1)
+    def test_find_credentialr(self):
+      
+        self.new_credential.save_details()
+        test_credential = Credentials("Instagram","willlard","willard") 
+        test_credential.save_details()
+        the_credential = Credentials.find_credential("Instagram")
+        self.assertEqual(the_credential.account,test_credential.account)
