@@ -60,3 +60,16 @@ def userlocker():
         print("*"*70)
         print(f"Hello {username}, Succesfully Created! Your password is: {password}")
         print("*"*70)
+
+    elif short_code == "li":
+        print("*"*42)
+        print("Enter your Username and Password:")
+        print('*' * 40)
+        username = input("User name: ")
+        password = input("password: ")
+        login = login_user(username,password)
+        if login_user == login:
+            print(f"Hello {username}.Welcome To PassLocker")  
+            print('\n')
+    while True:
+        print("Below are the prefixes you can use:\n CC - Create new credential \n SC - Show Credentials \n FC - Find credential \n GP - Generate Password \n DC - Delete credential \n Exit - Close\n")
