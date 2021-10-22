@@ -27,3 +27,12 @@ class TestCredentials(unittest.TestCase):
         self.new_credential.save_details()
         self.assertEqual(len(Credentials.credentials_list),1)
 
+    def tearDown(self):
+        Credentials.credentials_list = []
+
+    def test_delete_credential(self):
+        self.new_credential.save_details()
+        test_credential = Credentials("facebook","willard","willard")
+        test_credential.save_details()
+        self.new_credential.delete_credentials()
+        self.assertEqual(len(Credentials.credentials_list),1)
