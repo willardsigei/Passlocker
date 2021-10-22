@@ -73,3 +73,28 @@ def userlocker():
             print('\n')
     while True:
         print("Below are the prefixes you can use:\n CC - Create new credential \n SC - Show Credentials \n FC - Find credential \n GP - Generate Password \n DC - Delete credential \n Exit - Close\n")
+      
+        short_code = input().lower().strip()
+        if short_code == "cc":
+            print("Create New Credential")
+            print("."*20)
+            print("User name ....")
+            account = input().lower()
+            print("Your Account username")
+            userName = input()
+            while True:
+                print(" TP - type your password :\n GP - Generate Password")
+                password_Choice = input().lower().strip()
+                if password_Choice == 'tp':
+                    password = input("Type Password\n")
+                    break
+                elif password_Choice == 'gp':
+                    password = generate_Password()
+                    break
+                else:
+                    print("Invalid!")
+            save_credentials(create_new_credential(account,userName,password))
+            print('\n')
+            print(f"Credential for: {account} - UserName: {userName} - Password:{password} Succesfully Created")
+            print('\n')
+
