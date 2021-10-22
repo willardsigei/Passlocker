@@ -37,3 +37,26 @@ def generate_Password():
 
 def copy_password(account):
     return Credentials.copy_password(account)
+
+def userlocker():
+    print("Welcome.\n Please choose one to proceed.\n SU ---  Sign up  \n LI ---  Login  \n")
+    short_code=input("").lower().strip()
+    if short_code == "SU":
+        print("Sign Up")
+        print('*' * 50)
+        username = input("User_name: ")
+        while True:
+            print(" CP - Create Password:\n GP - Generate Password")
+            password_Choice = input().lower().strip()
+            if password_Choice == 'CP':
+                password = input("Enter Password\n")
+                break
+            elif password_Choice == 'GP':
+                password = generate_Password()
+                break
+            else:
+                print("Invalid!")
+        save_user(create_new_user(username,password))
+        print("*"*70)
+        print(f"Hello {username}, Succesfully Created! Your password is: {password}")
+        print("*"*70)
