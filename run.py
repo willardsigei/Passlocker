@@ -21,3 +21,19 @@ def save_credentials(credentials):
     credentials. save_details()
 def show_accounts_details():
     return Credentials.show_credentials()
+
+def delete_credential(credentials):
+    credentials.delete_credentials()
+
+def find_credential(account):
+    return Credentials.find_credential(account)
+
+def check_credendtials(account):
+    return Credentials.if_credential_exist(account)
+
+def generate_Password():
+    auto_password=Credentials.generatePassword()
+    return auto_password
+
+def copy_password(account):
+    return Credentials.copy_password(account)
